@@ -24,7 +24,7 @@ const App = () => {
           <button className="text-2xl text-gray-200 p-2 bg-violet-500 rounded-lg" onClick={() => setPages(pages + 20)}>Next</button>
         )}
       </nav>
-      <div className="grid grid-cols-5 justify-center items-center gap-6 text-gray-200">
+      <div className="grid grid-cols-5 justify-center items-center gap-6 text-gray-200 min-[450px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {pokemons.map((pokemon) => <Pokemon key={pokemon.name} url={pokemon.url}/>) }
       </div>
     </div>
