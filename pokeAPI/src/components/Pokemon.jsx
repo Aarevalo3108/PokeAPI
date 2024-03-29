@@ -24,7 +24,4 @@ const Pokemon = (data = {url}) => {
     </div>
   )
 }
-
-
-
 export default Pokemon
