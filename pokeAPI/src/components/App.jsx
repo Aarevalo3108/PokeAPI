@@ -63,7 +63,7 @@ const App = () => {
         </div>
       </div>
       {pokemonData && (
-      <div>
+      /*<div>
         <h2>{pokemonData.name}</h2>
         <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
         <p>Height: {pokemonData.height}</p>
@@ -74,7 +74,8 @@ const App = () => {
             <li key={index}>{ability.ability.name}</li>
           ))}
         </ul>
-      </div>
+      </div>*/
+      <Pokemon url={`https://pokeapi.co/api/v2/pokemon/${pokemonName}`}/>
     )}
     </div>
   )
