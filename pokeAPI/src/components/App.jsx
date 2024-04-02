@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import Pokemon from './Pokemon'
-/*import Heart from '../img/Pokemon.svg'
-import Search from '../img/search.svg'*/
+/*import Heart from '../img/Pokemon.svg'*/
+import Search from '../img/search.svg'
 import axios from 'axios'
 import logo from '../img/logo.svg'
 
@@ -46,9 +46,9 @@ const App = () => {
 
     
     <form onSubmit={handleSubmit} className="flex flex-row gap-1 bg-white/80 rounded-md py-1 px-1">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512" height="30" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="30" xml:space="preserve"><circle cx="256" cy="256.001" fill="#040403" r="249.766"/><g><path d="M490.017,254c0,129.243-104.772,234.017-234.017,234.017S21.983,383.243,21.983,254" fill="#E0E4E8"/><path d="M21.983,258C21.983,128.756,126.756,23.983,256,23.983S490.017,128.756,490.017,258" fill="#E64C3C"/></g><rect fill="#040404" height="107" width="484" x="14" y="203"/><circle cx="256" cy="256" r="123.772"/><circle cx="256" cy="256" fill="#E0E4E8" r="75.024"/><circle cx="256" cy="256" r="51.025"/><circle cx="256" cy="256" fill="#E0E4E8" r="36.026"/></svg>
-        <input placeholder='Pokebusqueda' type="text" class="bg-inherit focus:outline-none pl-1 text-2xl w-full text-black max-sm:w-60" value={pokemonName} onChange={handleChange}/>
-        <button className='text-yellow-600' type='submit'>search</button>
+      <img src={Search} alt="" />
+      <input placeholder='Pokebusqueda' type="text" class="bg-inherit focus:outline-none pl-1 text-2xl w-full text-black max-sm:w-60" value={pokemonName} onChange={handleChange}/>
+      <button className='text-yellow-600' type='submit'>search</button>
     </form>
  
    <div>
@@ -74,7 +74,7 @@ const App = () => {
         )}
         </div>
        </div>
-        <div className="grid justify-center items-center gap-6 text-gray-200 min-[450px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <div className="grid justify-center items-center gap-6 text-gray-200 min-[630px]:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {pokemons.map((pokemon) => <Pokemon key={pokemon.name} url={pokemon.url}/>) }
         </div>
       </div>
