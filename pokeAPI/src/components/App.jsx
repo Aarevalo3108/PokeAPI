@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react'
 import Pokemon from './Pokemon'
 import Pokedex from '../img/pokedex.svg'
+import Heart from '../img/Pokemon.svg'
+import Search from '../img/search.svg'
 import axios from 'axios'
 import logo from '../img/Pokemon.svg'
 
@@ -42,9 +44,13 @@ const App = () => {
   return (
 <div className="flex flex-col justify-center items-center gap-12 p-8">
   <nav className="grid grid-cols-3 justify-items-center items-center sticky z-10 top-0 text-2xl text-gray-200 font-mono w-full h-20 bg-gray-700 rounded">
+
+<div className="flex flex-col justify-center items-center gap-8 p-8">
+  <nav className="flex justify-center items-center sticky z-10 top-0 p-4 text-2xl text-gray-200 flex justify-between gap-2 items-center font-mono w-full h-20 bg-gray-800 rounded">
       <div className='flex flex-row items-center justify-center g-4 max-md:hidden '>
           <img src={logo} alt="pokedex"  className='w-32 h-20 '/> 
       </div>
+
     
     <form onSubmit={handleSubmit} className="flex flex-row gap-1 bg-white/80 rounded-md py-1 px-1">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512" height="30" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="30" xml:space="preserve"><circle cx="256" cy="256.001" fill="#040403" r="249.766"/><g><path d="M490.017,254c0,129.243-104.772,234.017-234.017,234.017S21.983,383.243,21.983,254" fill="#E0E4E8"/><path d="M21.983,258C21.983,128.756,126.756,23.983,256,23.983S490.017,128.756,490.017,258" fill="#E64C3C"/></g><rect fill="#040404" height="107" width="484" x="14" y="203"/><circle cx="256" cy="256" r="123.772"/><circle cx="256" cy="256" fill="#E0E4E8" r="75.024"/><circle cx="256" cy="256" r="51.025"/><circle cx="256" cy="256" fill="#E0E4E8" r="36.026"/></svg>
@@ -58,6 +64,14 @@ const App = () => {
     <div className="col-start-2"> {pokemonData && (
       <Pokemon key={pokemonData.name ? pokemonData.name : '' } data={pokemonData } url={`https://pokeapi.co/api/v2/pokemon/${pokemonName}`}/>  
     )}</div>
+
+    <form onSubmit={handleSubmit} className="flex flex-row gap-1 bg-white/80 rounded-md py-1 px-1">
+        <img src={Search} alt="" />
+        <input placeholder='Pokebusqueda' type="text" className="bg-inherit focus:outline-none pl-1 text-2xl w-full text-black max-sm:w-60" value={pokemonName} onChange={handleChange}/>
+        <button type='submit'>search</button>
+    </form>
+    <img src={Heart} alt="" />
+
   </nav>
   
    
@@ -77,12 +91,16 @@ const App = () => {
         <div className="grid justify-center items-center gap-6 text-gray-200 min-[450px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {pokemons.map((pokemon) => <Pokemon key={pokemon.name} url={pokemon.url}/>) }
         </div>
+        {pokemonData && (
+      <Pokemon key={pokemonName} url={`https://pokeapi.co/api/v2/pokemon/${pokemonName}`}/>
+      )}
       </div>
     </div>
   )
 }
 
 export default App
+
 /*<div>
         <h2>{pokemonData.name}</h2>
         <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
@@ -94,4 +112,5 @@ export default App
             <li key={index}>{ability.ability.name}</li>
           ))}
         </ul>
-      </div>*/
+      </div>*
+/
